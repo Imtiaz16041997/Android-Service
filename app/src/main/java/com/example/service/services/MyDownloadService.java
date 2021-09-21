@@ -19,10 +19,22 @@ private static final String TAG = "MyTag";
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        Log.d(TAG,"onStartCommand: "+Thread.currentThread().getName());
         final String songName = intent.getStringExtra(MainActivity.MESSAGE_KEY);
 
-        downloadSong(songName);
+        Thread thread = new Thread(new Runnable()
+            {
+                @Override
+                public void run() {
+                   downloadSong(songName);
+                }
+            });
 
+
+//        downloadSong(songName);
+
+        thread.start();
         return  Service.START_REDELIVER_INTENT;
     }
 
