@@ -18,6 +18,12 @@ private static final String TAG = "MyTag";
     }
 
     @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG,"onCreate: called");
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         Log.d(TAG,"onStartCommand: "+Thread.currentThread().getName());
@@ -42,6 +48,7 @@ private static final String TAG = "MyTag";
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d(TAG,"onBind: called ");
         return null;
     }
 
@@ -56,5 +63,12 @@ private static final String TAG = "MyTag";
             e.printStackTrace();
         }
         Log.d(TAG, "downloadSong: "+songName+" Downloaded..." );
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"onDestroy: called ");
+
     }
 }
