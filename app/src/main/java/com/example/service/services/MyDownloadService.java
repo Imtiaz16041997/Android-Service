@@ -22,7 +22,8 @@ private static final String TAG = "MyTag";
 
         Log.d(TAG,"onStartCommand: "+Thread.currentThread().getName());
         final String songName = intent.getStringExtra(MainActivity.MESSAGE_KEY);
-
+//demo thread, Created a separated background thread in started service.
+        // where, our service long running operation doing , which separated from main thread
         Thread thread = new Thread(new Runnable()
             {
                 @Override
