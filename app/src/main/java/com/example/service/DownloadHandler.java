@@ -7,10 +7,10 @@ import android.util.Log;
 public class DownloadHandler  extends Handler {
 
     private static final String TAG = "MyTag";
-    private final MainActivity mActivity;
 
-    public DownloadHandler(MainActivity activity) {
-        this.mActivity=activity;
+
+    public DownloadHandler() {
+
     }
 
     @Override
@@ -27,13 +27,13 @@ public class DownloadHandler  extends Handler {
             e.printStackTrace();
         }
 
-        mActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mActivity.log("Downlaod Complete "+songName);
-                mActivity.displayProgressBar(false);
-            }
-        });
+//        mActivity.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                mActivity.log("Downlaod Complete "+songName);
+//                mActivity.displayProgressBar(false);
+//            }
+//        });
 
 
 

@@ -5,18 +5,18 @@ import android.os.Looper;
 public class DownloadThread extends Thread {
 
     private static final String TAG = "MyTag";
-    private final MainActivity mActivity;
+
     public DownloadHandler mHandler;
 
-    public DownloadThread(MainActivity activity) {
-        this.mActivity=activity;
+    public DownloadThread() {
+
     }
 
     @Override
     public void run() {
 
         Looper.prepare();
-        mHandler=new DownloadHandler(mActivity);
+        mHandler=new DownloadHandler();
         Looper.loop();
 
     }
